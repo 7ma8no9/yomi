@@ -1,10 +1,10 @@
 import {useAtomValue, useSetAtom} from "jotai";
-import {currentMangaAtom, mangaListAtom, refreshMangaListAtom} from "./store";
+import {currentMangaAtom, mangaListAtom} from "./store";
 import { open } from '@tauri-apps/api/dialog'
 import {invoke} from "@tauri-apps/api";
 
 export const useAddManga = () => {
-  const refreshMangaList = useSetAtom(refreshMangaListAtom)
+  const refreshMangaList = useSetAtom(mangaListAtom)
 
   return async () => {
     const path = await open({

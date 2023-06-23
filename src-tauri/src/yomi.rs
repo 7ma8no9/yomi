@@ -2,7 +2,6 @@ use crate::db;
 use crate::manga::Manga;
 use rusqlite::{Connection, params, Result};
 use std::sync::Mutex;
-use std::path::Path;
 use crate::utils::{get_filename_from_path, path_exist};
 
 pub struct YomiState {
