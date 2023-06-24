@@ -1,8 +1,20 @@
 import React from 'react'
-import {Container, Dialog} from "@mui/material";
+import {Container, Dialog, Zoom} from "@mui/material";
 import {useAtom} from "jotai";
 import {currentMangaAtom} from "./store";
 import ScrollReader from "@components/ScrollReader";
+import {TransitionProps} from "@mui/material/transitions";
+import TurnReader from "@components/TurnReader";
+
+const DialogTransition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>
+  },
+  ref: React.Ref<unknown>
+) {
+  const { children, ...rest} = props
+  return <Zoom ref={ref} {...rest} children={children} style={{ transformOrigin: "center" }} />
+})
 
 const Reader: React.FC = () => {
   const [currentManga, setCurrentManga] = useAtom(currentMangaAtom)
@@ -11,11 +23,12 @@ const Reader: React.FC = () => {
   return (
     <Dialog
       open={open} onClose={() => setCurrentManga(null)}
-      fullScreen
+      fullScreen TransitionComponent={DialogTransition}
     >
       {
         currentManga ? (
-          <ScrollReader {...currentManga} />
+          <TurnReader {...currentManga} />
+          // <ScrollReader {...currentManga} />
         ) : null
       }
     </Dialog>

@@ -1,22 +1,16 @@
 import React from 'react'
 import {Box, Container, List} from "@mui/material";
 import {FileEntry, readDir} from "@tauri-apps/api/fs";
-import {getSuffix} from "@utils/tool";
+import {getSuffix, readMangaList} from "@utils/tool";
 import Page from "@components/ScrollReader/Page";
-import {convertFileSrc} from "@tauri-apps/api/tauri";
 import Scrollbars from "react-custom-scrollbars";
 
 const useScrollReader = (manga: Manga.Instance) => {
   const [fileList, setFileList] = React.useState<Array<FileEntry>>([])
 
-  const readFile = async (manga: Manga.Instance) => {
-    const fileList = await readDir(manga.path, { recursive: false })
-    setFileList(fileList.filter(x => ['png', 'jpeg', 'jpg'].includes(getSuffix(x.name || ''))))
-  }
-
   React.useEffect(
     () => {
-      readFile(manga)
+      readMangaList(manga.path).then(setFileList)
     },
     [manga]
   )
@@ -36,7 +30,7 @@ const ScrollReader: React.FC<Manga.Instance> = (manga) => {
           <List>
             {
               fileList.map((file, idx) => (
-                <Page {...file} idx={idx} />
+                <Page path={file.path} key={idx} />
               ))
             }
           </List>
