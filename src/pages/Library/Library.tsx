@@ -57,6 +57,7 @@ const Inner: React.FC = () => {
           gridTemplate: 'auto/repeat(auto-fill, minmax(400px, 1fr))',
           gap: '40px',
           p: 2,
+          bgcolor: theme => theme.palette.mode === 'dark' ? undefined : '#fcfcfc'
         }}
       >
         <AddManga />

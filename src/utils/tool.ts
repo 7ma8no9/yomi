@@ -9,5 +9,5 @@ export const getSuffix = (name: string) => {
 export const readMangaList = async (path: string) => {
   const fileList = await readDir(path, { recursive: false })
 
-  return fileList.filter(x => ['png', 'jpeg', 'jpg'].includes(getSuffix(x.name || '')))
+  return fileList.filter(x => ['png', 'jpeg', 'jpg', 'avif'].includes(getSuffix(x.name || '')))
 }

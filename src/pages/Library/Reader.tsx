@@ -1,10 +1,11 @@
 import React from 'react'
-import {Container, Dialog, Zoom} from "@mui/material";
+import {Button, Container, Dialog, IconButton, Zoom} from "@mui/material";
 import {useAtom} from "jotai";
 import {currentMangaAtom} from "./store";
 import ScrollReader from "@components/ScrollReader";
 import {TransitionProps} from "@mui/material/transitions";
 import TurnReader from "@components/TurnReader";
+import SwapIcon from '@mui/icons-material/SwapHoriz';
 
 const DialogTransition = React.forwardRef(function Transition(
   props: TransitionProps & {
