@@ -1,0 +1,72 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@": ["src"],
+      "@/*": ["src/*"],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@pages": [
+        "src/pages"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@hooks": [
+        "src/hooks"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@stores": [
+        "src/stores"
+      ],
+      "@stores/*": [
+        "src/stores/*"
+      ],
+      "@apis": [
+        "src/apis"
+      ],
+      "@apis/*": [
+        "src/apis/*"
+      ],
+      "@utils": [
+        "src/utils"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@assets": [
+        "src/assets"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@icons": [
+        "src/icons"
+      ],
+      "@icons/*": [
+        "src/icons/*"
+      ],
+      "@data": [
+        "src/data"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@shared": [
+        "src/shared"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ],
+      "@router": [
+        "src/router"
+      ],
+      "@router/*": [
+          "src/router/*"
+      ]
+    }
+  }
+}
