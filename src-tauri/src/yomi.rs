@@ -86,6 +86,17 @@ impl Yomi {
 
         Ok(())
     }
+
+    pub fn remove_manga(&self, id: i32) -> Result<(), &str> {
+        let mut stmt = self.conn.prepare("DELETE FROM Manga WHERE id = ?1").unwrap();
+        let res = stmt.execute(params![id]);
+
+        if res.is_err() {
+            return Err("Failed to remove manga");
+        }
+
+        Ok(())
+    }
 }
 
 impl YomiState {
