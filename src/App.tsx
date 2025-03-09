@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { invoke } from "@tauri-apps/api/core";
-import {Button, Image } from "@heroui/react";
+import {addToast, Button, Image} from "@heroui/react";
 import { open } from '@tauri-apps/plugin-dialog'
 
 function App() {
@@ -22,10 +22,15 @@ function App() {
       })
     })
       .then(buf => {
-        console.log('buf:\n', buf)
         setUrl(URL.createObjectURL(new Blob([new Uint8Array(buf as number[])])))
       })
-      .catch(console.error)
+      .catch(e => {
+        addToast({
+          title: e + '',
+          shouldShowTimeoutProgress: true,
+          color: 'danger'
+        })
+      })
   }
 
   useEffect(
